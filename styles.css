@@ -1,0 +1,244 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Slab&family=Open+Sans');
+
+body
+{   
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+group1
+{
+    display: flex;
+    justify-content: space-around;
+}
+
+group2
+{
+    display: flex;
+}
+
+group3
+{
+    display: flex;
+}
+
+group4
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+group5
+{
+    display: flex;
+    justify-content: center;
+    margin-top: 400px;
+    position: absolute;
+    left: 12.5%;
+    right: 12.5%;
+    transform: translateY(300px);
+}
+
+group6
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+mc
+{
+    margin-top: 50px;
+    height: 500px;
+    width: 200px;
+    background-image: url(images/mc_idle.png);
+    background-size: cover;
+    animation: mc_bounce 3s infinite;
+    animation-delay: 3s
+}
+
+@keyframes mc_bounce
+{
+    0% {transform: translateY(-12px);}
+    51% {transform: translateY(12px);}
+    100% {transform: translateY(-12px);}
+}
+
+section
+{
+    margin-top: -50px;
+    width: 28%;
+    height: 800px;
+    background-image: linear-gradient(to bottom, rgb(230, 93, 203), rgb(221, 88, 194), rgb(186, 66, 162), rgb(180, 63, 157), rgb(164, 55, 142));
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transform: rotate(-5deg);
+}
+
+enemy
+{
+    margin-top: 100px;
+    height: 500px;
+    width: 200px;
+    background-image: url(images/enemy_idle.png );
+    background-size: cover;
+    animation: enemy_bounce 3s infinite;
+    animation-delay: 2s
+}
+
+@keyframes enemy_bounce
+{
+    0% {transform: translateY(-10px);}
+    49% {transform: translateY(10px);}
+    100% {transform: translateY(-10px);}
+}
+
+button1
+{
+    margin: 2px 0px 0px 0px;
+    height: 25px;
+    width: 100%;
+    background-color: rgb(164, 55, 142);
+    display: flex;
+    align-items: center;
+    font-family: 'Roboto Slab';
+    color: rgb(65, 10, 54);
+    text-indent: 20px;
+}
+
+a
+{
+    position: absolute;
+    opacity: 0;
+}
+
+button2
+{
+    right: 0;
+    margin-top: -100px;
+    height: 1000px;
+    width: 49.5%;
+    background-color: rgba(91, 69, 86, .2);
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button3
+{
+    left: 0;
+    margin-top: -100px;
+    height: 1000px;
+    width: 49.5%;
+    background-color: rgba(91, 69, 86, .2);
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+img
+{
+    margin-bottom: 150px;
+    height: 300px;
+    width: 300px;
+    opacity: 1;
+    z-index: 1;
+}
+
+showcoin
+{
+    margin-top: -175px;
+    height: 1000px;
+    width: 100%;
+    background-color: rgb(91, 69, 86);
+    opacity: 0.2;
+    position: absolute;
+    transform: scale(0);
+}
+
+button
+{
+    margin-right: 10px;
+    height: 60px;
+    width: 200px;
+    background-color: rgb(255, 227, 249);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Roboto Slab';
+    font-size: x-large;
+    color: rgb(65, 10, 54);
+    border: 3px solid rgb(41, 39, 39);
+}
+
+log
+{
+    height: 200px;
+    width: 700px;
+    background-color: rgb(255, 227, 249);
+    border: 3px solid rgb(41, 39, 39);
+    font-family: 'Roboto Slab';
+    color: rgb(65, 10, 54);
+    border: 3px solid rgb(41, 39, 39);
+    overflow-y: auto;
+}
+
+heart img
+{
+    height: 150px;
+    width: 225px;
+    z-index: 1;
+    position: absolute;
+    left: 41.63%;
+    right: 41.63%;
+    top: -35px;
+}
+
+mcBar
+{
+    margin-top: 10px;
+    margin-right: 14px;
+    height: 30px;
+    width: 500px;
+    border: 2px solid rgb(41, 39, 39);
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
+}
+
+#goodHearts
+{
+    height: 30px;
+    width: 500px;
+    background-color: rgb(219, 59, 59);
+    border-bottom-left-radius: 7.5px;
+    border-top-left-radius: 7.5px;
+    float: right;
+    position: absolute;
+}
+
+enemyBar
+{
+    margin-top: 10px;
+    margin-left: 14px;
+    height: 30px;
+    width: 500px;
+    border: 2px solid rgb(41, 39, 39);
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+#badHearts
+{
+    height: 30px;
+    width: 500px;
+    background-color: rgb(219, 59, 59);
+    border-bottom-right-radius: 7.5px;
+    border-top-right-radius: 7.5px;
+    float:left;
+    position: absolute;
+}
