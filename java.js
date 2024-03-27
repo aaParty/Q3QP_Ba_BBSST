@@ -40,6 +40,8 @@ function tossCoin ()
                 document.getElementById ("coin").innerHTML = ("Enemy goes first");
                 round = 0;
             }
+
+            image.src = 'images/heads.png';
             break;
             
         case 1:
@@ -53,12 +55,14 @@ function tossCoin ()
                 document.getElementById ("coin").innerHTML = ("Enemy goes first");
                 round = 0;
             }
+
+            image.src='images/tails.png';
             break;
     }
 
     if (round == 1)
     {
-        document.getElementById ("defend").disabled = false
+        document.getElementById ("defend").disabled = true
     }
 }
 
@@ -107,7 +111,7 @@ function playerAttack ()
             {
                 z1 = z.toString();
                 message = message + "You've dealt " + z1 + " damage. <br>";
-                enemyHealth =- z;
+                enemyHealth = enemyHealth - z;
             }
             else
             {
@@ -119,11 +123,12 @@ function playerAttack ()
             z1 = z.toString();
             z2 = y.toString();
             message = message + "You've dealt " + z1 + " damage, while the opponent dealt " + z2 + " damage. <br>";
-            enemyHealth =- z;
-            Health =- y;
+            enemyHealth = enemyHealth - z;
+            Health = Health - y;
         }
     }
     
+    document.getElementById ("defend").disabled = false
     barMove ();
 
     messageLog = document.getElementById ("output")
@@ -145,7 +150,7 @@ function playerDefend ()
         {
             z1 = y.toString()
             message = message + "The opponent dealt " + z1 + " damage. <br>";
-            Health =- y;
+            Health = Health - y;
         }
         else
         {
