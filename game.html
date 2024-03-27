@@ -10,10 +10,10 @@
 <body>
     <group2>
         <button2 id="left" onclick="animation1 (), heads ()">
-            <img src="images/heads.png" alt="">
+            <img src="images/heads.png" alt="" id="button">
         </button2>
         <button3 id="right" onclick="animation1 (), tails ()">
-            <img src="images/tails.png" alt="">
+            <img src="images/tails.png" alt="" id="button">
         </button3>
     </group2>
     <group3>
@@ -22,18 +22,26 @@
             <p id="coin"></p>
         </showcoin>
     </group3>
-    <group6>
+    <group5>
+        <div id="mc">
+            <img src="images/mc_idle.png" alt="" id="mchurt">
+        </div>
+        <div id="enemy">
+            <img src="images/enemy_idle.png" alt="" id="enemyhurt">
+        </div>
+    </group5>
+    <div id="gui2">
         <mcBar>
             <div id="goodHearts"></div>
         </mcBar>
         <heart>
-            <img src="images/heart.png" alt="">
+            <img src="images/heart.png" alt="" id="heart">
         </heart>
         <enemyBar>
             <div id="badHearts"></div>
         </enemyBar>
-    </group6>
-    <group5 id="gui1">
+    </div>
+    <div id="gui1">
         <group4>
             <button onclick="playerAttack ()" id="attack">
                 Attack
@@ -41,12 +49,11 @@
             <button onclick="playerDefend ()" id="defend">
                 Defend
             </button>
-            <button>
+            <button onclick="resetBtn ()">
                 Reset
             </button>
         </group4>
-        <log id="output">
-        </log>
-    </group5>
+        <log id="output"></log>
+    </div>
 </body>
 </html>

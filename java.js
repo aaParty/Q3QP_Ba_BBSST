@@ -1,5 +1,5 @@
 var Health, enemyHealth, coin, coinSelect, round, randomAction;
-var id, object1, object2, object3, object4, move, scale;
+var id, object1, object2, object3, object4, object5, object6, object7, move, scale;
 var message = "", messageLog = "";
 var mcHearts, enemyHearts;
 
@@ -99,6 +99,8 @@ function playerAttack ()
     {
         z1 = x.toString()
         message = message + "You've dealt " + z1 + " damage. ";
+        mchurt.src='images/mc_idle.png';
+        enemyhurt.src='images/enemy_hurt.png';
         round = 0;
     }
     else
@@ -111,11 +113,15 @@ function playerAttack ()
             {
                 z1 = z.toString();
                 message = message + "You've dealt " + z1 + " damage. <br>";
+                mchurt.src='images/mc_idle.png';
+                enemyhurt.src='images/enemy_hurt.png';
                 enemyHealth = enemyHealth - z;
             }
             else
             {
                 message = message + "The opponent completely blocked the attack. <br>";
+                mchurt.src='images/mc_hurt.png';
+                enemyhurt.src='images/enemy_idle.png';
             }
         }
         else
@@ -123,6 +129,8 @@ function playerAttack ()
             z1 = z.toString();
             z2 = y.toString();
             message = message + "You've dealt " + z1 + " damage, while the opponent dealt " + z2 + " damage. <br>";
+            mchurt.src='images/mc_hurt.png';
+            enemyhurt.src='images/enemy_hurt.png';
             enemyHealth = enemyHealth - z;
             Health = Health - y;
         }
@@ -148,18 +156,24 @@ function playerDefend ()
         z = y + x;
         if (z > 0)
         {
-            z1 = y.toString()
+            z1 = z.toString()
             message = message + "The opponent dealt " + z1 + " damage. <br>";
-            Health = Health - y;
+            mchurt.src='images/mc_hurt.png';
+            enemyhurt.src='images/enemy_idle.png';
+            Health = Health - z;
         }
         else
         {
             message = message + "You completely blocked the attack. <br>";
+            mchurt.src='images/mc_idle.png';
+            enemyhurt.src='images/enemy_hurt.png';
         }
     }
     else
     {
         message = message + "You both defended. <br>";
+        mchurt.src='images/mc_idle.png';
+        enemyhurt.src='images/enemy_idle.png';
     }
 
     barMove ();
@@ -212,14 +226,53 @@ function frame3 ()
 
 function frame4 ()
 {
-    if (move == 300)
+    if (move >= 2)
     {
         clearInterval(id);
     }
     else
     {
-        move += 25;
-        object4.style.top = -move + 'px';
+        move += 2;
+        object4.style.bottom = move + '%';
+    }
+}
+
+function frame5 ()
+{
+    if (move >= 2)
+    {
+        clearInterval(id);
+    }
+    else
+    {
+        move += 2;
+        object5.style.top = move + '%';
+    }
+}
+
+function frame6 ()
+{
+    if (move >= 16)
+    {
+        clearInterval(id);
+    }
+    else
+    {
+        move += 2;
+        object6.style.left = move + '%';
+    }
+}
+
+function frame7 ()
+{
+    if (move >= 16)
+    {
+        clearInterval(id);
+    }
+    else
+    {
+        move += 2;
+        object7.style.right = move + '%';
     }
 }
 
@@ -259,9 +312,41 @@ async function animation3 ()
 async function animation4 ()
 {
     object4 = document.getElementById ("gui1");
-    move = 0;
+    move = -34;
     clearInterval (id);
-    id = setInterval (frame4, 25);
+    id = setInterval (frame4, 29);
+    id = null;
+    animation5 ();
+}
+
+async function animation5 ()
+{
+    object5 = document.getElementById ("gui2");
+    move = -32;
+    clearInterval (id);
+    id = setInterval (frame5, 30);
+    await delay (500);
+    id = null;
+    animation6 ();
+}
+
+async function animation6 ()
+{
+    object6 = document.getElementById ("mc");
+    move = -20;
+    clearInterval (id);
+    id = setInterval (frame6, 40);
+    id = null;
+    animation7 ();
+}
+
+async function animation7 ()
+{
+    object7 = document.getElementById ("enemy");
+    move = -20;
+    clearInterval (id);
+    id = setInterval (frame7, 41);
+    id = null;
 }
 
 function barMove ()
@@ -270,4 +355,9 @@ function barMove ()
     mcHearts.style.width = (Health * 5) + 'px';
     enemyHearts = document.getElementById ("badHearts")
     enemyHearts.style.width = (enemyHealth * 5) + 'px';
+}
+
+function resetBtn ()
+{
+    location.reload();
 }

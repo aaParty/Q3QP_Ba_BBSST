@@ -1,9 +1,20 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto+Slab&family=Open+Sans');
+@import url('https://fonts.googleapis.com/css?family=Roboto+Slab');
 
 body
 {   
+    background-image: url(images/background.png);
+    background-size: cover;
     overflow-x: hidden;
     overflow-y: hidden;
+}
+
+p
+{
+    margin-top: 200px;
+    font-family: 'Roboto Slab';
+    font-weight: bold;
+    font-size: xx-large;
+    color: rgb(65, 10, 54);
 }
 
 group1
@@ -29,46 +40,52 @@ group4
     justify-content: space-between;
 }
 
-group5
+#gui1
 {
     display: flex;
     justify-content: center;
-    margin-top: 400px;
     position: absolute;
     left: 12.5%;
     right: 12.5%;
-    transform: translateY(300px);
+    bottom: -100%
 }
 
-group6
+#gui2
 {
     display: flex;
     justify-content: center;
     align-items: center;
+    position: absolute;
+    left: -1%;
+    right: -1%;
+    top: -100%
+}
+
+#image
+{
+    height: 350px;
+    width: 350px;
+    margin-bottom: -200px;
+    margin-top: -10px;
+    margin-right: -5px;
 }
 
 mc
 {
-    margin-top: 50px;
+    margin-top: 25%;
+    margin-left: -10%;
     height: 500px;
     width: 200px;
     background-image: url(images/mc_idle.png);
     background-size: cover;
-    animation: mc_bounce 3s infinite;
-    animation-delay: 3s
-}
-
-@keyframes mc_bounce
-{
-    0% {transform: translateY(-12px);}
-    51% {transform: translateY(12px);}
-    100% {transform: translateY(-12px);}
+    transform: rotateY(180deg) rotate(10deg) scale(3);
 }
 
 section
 {
     margin-top: -50px;
-    width: 28%;
+    margin-left: -15%;
+    width: 35%;
     height: 800px;
     background-image: linear-gradient(to bottom, rgb(230, 93, 203), rgb(221, 88, 194), rgb(186, 66, 162), rgb(180, 63, 157), rgb(164, 55, 142));
     display: flex;
@@ -76,24 +93,17 @@ section
     justify-content: center;
     align-items: center;
     transform: rotate(-5deg);
+    z-index: 1;
 }
 
 enemy
 {
-    margin-top: 100px;
+    margin-top: -20%;
     height: 500px;
     width: 200px;
     background-image: url(images/enemy_idle.png );
     background-size: cover;
-    animation: enemy_bounce 3s infinite;
-    animation-delay: 2s
-}
-
-@keyframes enemy_bounce
-{
-    0% {transform: translateY(-10px);}
-    49% {transform: translateY(10px);}
-    100% {transform: translateY(-10px);}
+    transform: rotate(190deg) scale(3);
 }
 
 button1
@@ -105,8 +115,9 @@ button1
     display: flex;
     align-items: center;
     font-family: 'Roboto Slab';
+    font-weight: bold;
     color: rgb(65, 10, 54);
-    text-indent: 20px;
+    text-indent: 100px;
 }
 
 a
@@ -121,7 +132,7 @@ button2
     margin-top: -100px;
     height: 1000px;
     width: 49.5%;
-    background-color: rgba(91, 69, 86, .2);
+    background-color: rgba(91, 69, 86, 0.2);
     position: absolute;
     display: flex;
     justify-content: center;
@@ -134,19 +145,18 @@ button3
     margin-top: -100px;
     height: 1000px;
     width: 49.5%;
-    background-color: rgba(91, 69, 86, .2);
+    background-color: rgba(91, 69, 86, 0.2);
     position: absolute;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-img
+#button
 {
     margin-bottom: 150px;
     height: 300px;
     width: 300px;
-    opacity: 1;
     z-index: 1;
 }
 
@@ -155,10 +165,13 @@ showcoin
     margin-top: -175px;
     height: 1000px;
     width: 100%;
-    background-color: rgb(91, 69, 86);
-    opacity: 0.2;
+    background-color: rgba(91, 69, 86, 0.2);
     position: absolute;
     transform: scale(0);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 button
@@ -217,7 +230,7 @@ mcBar
     background-color: rgb(219, 59, 59);
     border-bottom-left-radius: 7.5px;
     border-top-left-radius: 7.5px;
-    float: right;
+    right: 51.225%;
     position: absolute;
 }
 
@@ -239,6 +252,32 @@ enemyBar
     background-color: rgb(219, 59, 59);
     border-bottom-right-radius: 7.5px;
     border-top-right-radius: 7.5px;
-    float:left;
+    float: left;
     position: absolute;
+}
+
+#mc
+{
+    position: absolute;
+    left: -100%;
+    top: 8%;
+}
+
+#mc img
+{
+    height: 525px;
+    width: 160px;
+}
+
+#enemy
+{
+    position: absolute;
+    right: -100%;
+    top: 12%;
+}
+
+#enemy img
+{
+    height: 450px;
+    width: 185px;
 }
