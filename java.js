@@ -1,3 +1,4 @@
+// * variables * //
 var Health, enemyHealth, coin, coinSelect, round, randomAction, endMessage;
 var id, object1, object2, object3, object4, object5, object6, object7, move, scale, blur1, blur2, blur3, blur4;
 var message = "", messageLog = "";
@@ -12,6 +13,7 @@ function delay (ms)
     return new Promise (resolve => setTimeout (resolve, ms));
 }
 
+//* the heads or tails buttons *//
 function heads ()
 {
     coinSelect = 0;
@@ -24,6 +26,7 @@ function tails ()
     tossCoin ();
 }
 
+//* function that will toss the coin *//
 function tossCoin ()
 {
     coin = Math.round(Math.random() * 2) % 2;
@@ -85,11 +88,13 @@ function tossCoin ()
     }
 }
 
+//* function that will calculate the values for attacks and defends *//
 function calculateDamage ()
 {
     return Math.floor(Math.random() * 5) % 5 + 1;
 }
 
+//* function that randomly chooses the opponents action *//
 function opponentAction ()
 {
     let x = Math.round(Math.random() * 2) % 2;
@@ -107,6 +112,7 @@ function opponentAction ()
     return y;
 }
 
+//* function to calculate the player's damage *//
 function playerAttack ()
 {
     message = message + "You will attack. " + "<br>";
@@ -179,6 +185,7 @@ function playerAttack ()
     }
 }
 
+//* function that determines how much the player will reduce the opponent's damage by *//
 function playerDefend ()
 {
     message = message + "You will defend. " + "<br>";
@@ -229,6 +236,7 @@ function playerDefend ()
     }
 }
 
+//* these are for animations *// 
 function frame1 ()
 {
     if (move == 750)
@@ -374,7 +382,9 @@ async function animation6 ()
     id = setInterval (frame6, 20);
     id = null;
 }
+//* animations end here *//
 
+//* this is for the hpbar to move depending on hp value *//
 function barMove ()
 {
     if (enemyHealth < 0)
@@ -393,11 +403,13 @@ function barMove ()
     enemyHearts.style.width = (enemyHealth * 5) + 'px';
 }
 
+//* this is the reset button (self explanatory) *//
 function resetBtn ()
 {
     location.reload();
 }
 
+//* this occurs when the game ends and disables all of the buttons before sending you back to the title page *//
 async function endGame ()
 {
     document.getElementById ("attack").disabled = true;
