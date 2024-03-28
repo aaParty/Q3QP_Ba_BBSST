@@ -1,5 +1,5 @@
 var Health, enemyHealth, coin, coinSelect, round, randomAction, endMessage;
-var id, object1, object2, object3, object4, object5, object6, object7, move, scale;
+var id, object1, object2, object3, object4, object5, object6, object7, move, scale, blur1, blur2, blur3, blur4;
 var message = "", messageLog = "";
 var mcHearts, enemyHearts;
 
@@ -62,7 +62,26 @@ function tossCoin ()
 
     if (round == 1)
     {
-        document.getElementById ("defend").disabled = true
+        document.getElementById ("defend").disabled = true;
+        blur2 = document.getElementById ("defend");
+        blur2.style.backgroundColor = 'grey';
+    }
+    else if (round == 0)
+    {
+        let z = calculateDamage ();
+        let z1 = z.toString();
+
+        message = message + "The opponent dealt " + z1 + " damage. <br>";
+        mchurt.src='images/mc_hurt.png';
+        enemyhurt.src='images/enemy_idle.png';
+        enemyhurt.style.width='200px';
+        mchurt.style.width='140px';
+        Health = Health - z;
+        barMove ();
+
+        messageLog = document.getElementById ("output")
+        messageLog.innerHTML = (message);
+        messageLog.scrollTop = messageLog.scrollHeight;
     }
 }
 
@@ -145,10 +164,12 @@ function playerAttack ()
         
     }
     
-    document.getElementById ("defend").disabled = false
+    document.getElementById ("defend").disabled = false;
+    blur2 = document.getElementById ("defend");
+    blur2.style.backgroundColor = 'rgb(255, 227, 249)';
     barMove ();
 
-    messageLog = document.getElementById ("output")
+    messageLog = document.getElementById ("output");
     messageLog.innerHTML = (message);
     messageLog.scrollTop = messageLog.scrollHeight;
 
@@ -198,7 +219,7 @@ function playerDefend ()
 
     barMove ();
 
-    messageLog = document.getElementById ("output")
+    messageLog = document.getElementById ("output");
     messageLog.innerHTML = (message);
     messageLog.scrollTop = messageLog.scrollHeight;
     
@@ -382,6 +403,14 @@ async function endGame ()
     document.getElementById ("attack").disabled = true;
     document.getElementById ("defend").disabled = true;
     document.getElementById ("reset").disabled = true;
+    blur1 = document.getElementById ("attack");
+    blur2 = document.getElementById ("defend");
+    blur3 = document.getElementById ("reset");
+    blur4 = document.getElementById ("output");
+    blur1.style.backgroundColor = 'grey';
+    blur2.style.backgroundColor = 'grey';
+    blur3.style.backgroundColor = 'grey';
+    blur4.style.backgroundColor = 'grey';
 
     if (enemyHealth == 0)
     {
@@ -392,7 +421,7 @@ async function endGame ()
         endMessage = "Lose";
     }
 
-    await delay (500);
+    await delay (1000);
     document.getElementById ("ending").innerHTML = (endMessage);
     animation6 ();
     await delay (2500);
