@@ -48,7 +48,7 @@ group4
     position: absolute;
     left: 12.5%;
     right: 12.5%;
-    bottom: -100%
+    bottom: -100%;
 }
 
 #gui2
@@ -200,6 +200,7 @@ button
     font-size: x-large;
     color: rgb(65, 10, 54);
     border: 3px solid rgb(41, 39, 39);
+    border-radius: 3vh;
 }
 
 log
@@ -220,9 +221,9 @@ heart img
     width: 225px;
     z-index: 1;
     position: absolute;
-    left: 41.63%;
-    right: 41.63%;
+    right: 43vw;
     top: -35px;
+
 }
 
 mcBar
@@ -313,4 +314,8 @@ enemyBar
     font-weight: bolder;
     font-size: xx-large;
     color: rgb(65, 10, 54);
+}
+
+#output {
+    border-top-right-radius: 1.5em
 }
