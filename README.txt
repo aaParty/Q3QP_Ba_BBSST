@@ -1,0 +1,1 @@
+Hi! This is our game where a random demon spawns in your room and decides to fight you. Always keep the screen at 100% zoom and if the images aren't working, just refresh the page. Don't forget to have fun!
